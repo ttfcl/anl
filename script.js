@@ -528,7 +528,7 @@ document.getElementById('search-form').addEventListener('submit', async function
         const report = makeReport(trends);
         updateReport(report, ticker);
         // 분석 함수 마지막에
-        showPdfButton();
+        //showPdfButton();
 
     } catch (err) {
         document.getElementById('summary-comment').innerHTML = `<span style="color:red;">${err.message}</span>`;
@@ -546,9 +546,9 @@ window.onload = () => {
 };
 
 // 1) 분석 성공(데이터 표시) 후 아래 함수를 호출
-function showPdfButton() {
-    document.getElementById('pdf-download-btn').style.display = "block";
-}
+// function showPdfButton() {
+//     document.getElementById('pdf-download-btn').style.display = "block";
+// }
 
 document.getElementById('pdf-download-btn').addEventListener('click', function () {
     // 1. card-section, details-section 복사
