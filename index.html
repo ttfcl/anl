@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>해외주식 재무제표 분석</title>
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <noscript>
+  location.href = "https://google.com"; // 또는 다른 사이트로 강제 이동  
+  </noscript>
+
+</head>
+<body>
+  <div class="main-container">
+    <h1>해외주식 재무제표 자동분석</h1>
+    <div class="desc-text">티커(종목코드)를 입력하고 &nbsp; <b>분석</b> &nbsp;버튼을 누르면<br>
+      3년치 재무제표와 변동성까지 반영한 종합 분석, 추천 코멘트, 각 항목별 그래프와 설명을 한 번에 확인할 수 있습니다.</div>
+
+    <form id="search-form">
+      <input id="ticker-input" type="text" placeholder="예: AAPL, MSFT, TSLA" autocomplete="off" />
+      <button type="submit">분석</button>
+    </form>
+    
+    <div id="welcome-visual" class="welcome-visual">
+  <div class="ai-anim-chart">
+    <svg width="120" height="90" viewBox="0 0 120 90">
+      <polyline points="10,75 40,40 70,70 100,20" 
+                fill="none" stroke="#1e63de" stroke-width="5" 
+                class="anim-line"/>
+      <circle cx="10" cy="75" r="6" fill="#1e63de">
+        <animate attributeName="cy" values="75;72;75" dur="1.5s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="40" cy="40" r="6" fill="#44ca6b">
+        <animate attributeName="cy" values="40;35;40" dur="1.5s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="70" cy="70" r="6" fill="#ffe066">
+        <animate attributeName="cy" values="70;64;70" dur="1.5s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="100" cy="20" r="6" fill="#fc5454">
+        <animate attributeName="cy" values="20;14;20" dur="1.5s" repeatCount="indefinite"/>
+      </circle>
+    </svg>
+    <div class="ai-desc">
+      <div class="ai-title">AI 자동 재무제표 분석</div>
+      <div class="ai-sub">주식 종목의 재무정보를<br>AI가 전문가처럼 분석합니다.</div>
+    </div>
+  </div>
+    </div>
+    <!-- 분석 결과 표시 영역(card-section, details-section) 위 또는 아래 원하는 위치에! -->
+<button id="pdf-download-btn" style="margin-bottom:16px;display:none;">
+  PDF로 저장하기
+</button>
+
+    <div class="card-section">
+    <div class="gauge-center-box">
+        <div class="gauge-wrap">
+            <canvas id="scoreGauge" width="140" height="140"></canvas>
+            <span id="scoreGauge-label" class="gauge-label"></span>
+            </div>
+        </div>
+        <div id="score-label"></div>
+        <div id="score-meta"></div>
+        <div id="score-recommend" class="recommend-box"></div>
+    </div>
+
+    
+    <div class="details-section">
+      <div class="section-title">항목별 분석</div>
+      <div id="summary-comment" class="comment-box"></div>
+      <div id="item-comments"></div>
+      <div id="mini-charts"></div>
+    </div>
+  </div>
+
+    <div id="block-overlay" style="display:none; position:fixed; z-index:9999; left:0; top:0; width:100vw; height:100vh; background:rgba(33,50,100,0.58); color:#fff; text-align:center; font-size:2.2em; font-weight:800; letter-spacing:-2px; padding-top:18vh; filter:none;">
+    <div>보안상<br>이 페이지의 사용이 제한되었습니다.</div>
+  </div>
+  <noscript>
+    <style>
+      #main-content { display:none !important; }
+      #block-overlay { 
+        display:block !important; 
+        background:rgba(30,0,0,0.92) !important; 
+        color:#fff; 
+        position:fixed; 
+        z-index:99999; 
+        left:0; top:0; width:100vw; height:100vh;
+        font-size:2.3em; text-align:center; padding-top:16vh;
+      }
+    </style>
+    <div id="block-overlay">이 페이지는 JavaScript가 반드시 필요합니다.<br>브라우저 설정에서 JavaScript를 허용해 주세요.</div>
+  </noscript>
+    <script src="script.js" defer></script>
+</body>
+</html>
