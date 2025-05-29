@@ -1,7 +1,3 @@
-/* 구글폰트 권장 (index.html에 추가)
-<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,700&display=swap" rel="stylesheet">
-*/
-
 body {
   background: #f5f7fa;
   font-family: 'Noto Sans KR', 'Roboto', Arial, sans-serif;
@@ -16,6 +12,7 @@ body {
   border-radius: 20px;
   box-shadow: 0 6px 32px rgba(35,50,100,0.10), 0 1.5px 8px rgba(0,0,0,0.02);
   padding: 32px 24px 38px 24px;
+  transition: padding 0.3s;
 }
 
 /* 상단 타이틀/설명 */
@@ -30,6 +27,7 @@ h1 {
   color: #6b7894;
   margin-bottom: 24px;
   font-size: 1.1em;
+  text-align: center;
 }
 
 /* 검색폼 */
@@ -37,6 +35,7 @@ form#search-form {
   display: flex;
   gap: 10px;
   margin-bottom: 22px;
+  flex-wrap: wrap;
 }
 #ticker-input {
   flex: 1;
@@ -46,6 +45,7 @@ form#search-form {
   border-radius: 10px;
   outline: none;
   transition: border .18s;
+  min-width: 120px;
 }
 #ticker-input:focus {
   border-color: #417efb;
@@ -76,6 +76,7 @@ button[type="submit"]:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
+  transition: padding 0.3s;
 }
 .gauge-center-box {
   width: 100%;
@@ -88,12 +89,14 @@ button[type="submit"]:hover {
   display: inline-block;
   width: 140px;
   height: 140px;
+  min-width: 110px;
+  min-height: 110px;
 }
 .gauge-label {
   position: absolute;
-  top: 51%;
+  top: 52%;
   left: 50%;
-  transform: translate(-50%, -54%);
+  transform: translate(-50%, -50%);
   font-size: 2.2em;
   font-weight: bold;
   color: #194d77;
@@ -102,22 +105,25 @@ button[type="submit"]:hover {
   z-index: 2;
   letter-spacing: -2px;
   text-align: center;
+  margin-top: 8px;
 }
 #score-label {
   margin-top: 0px;
-  font-size: 1.25em;
+  font-size: 1.2em;
   font-weight: bold;
   color: #194d77;
   text-align: center;
+  letter-spacing: -1px;
 }
 
 /* 분석결과 안내문구 (티커/날짜) */
 #score-meta {
-  font-size: 1.02em;
+  font-size: 1em;
   color: #3a4a5d;
   margin-bottom: 7px;
   text-align: center;
-  line-height: 1.5;
+  line-height: 1.6;
+  word-break: break-all;
 }
 
 /* 추천 코멘트 박스 */
@@ -128,10 +134,12 @@ button[type="submit"]:hover {
   border-radius: 10px;
   margin: 18px 0 12px 0;
   padding: 15px 22px 15px 18px;
-  font-size: 1.13em;
+  font-size: 1.11em;
   font-weight: bold;
   box-shadow: 0 2px 8px rgba(240,180,30,0.06);
   text-align: left;
+  line-height: 1.55;
+  word-break: keep-all;
 }
 .recommend-box.warn {
   background: #fff7e6;
@@ -150,7 +158,7 @@ button[type="submit"]:hover {
   padding: 0;
 }
 .section-title {
-  font-size: 1.28em;
+  font-size: 1.18em;
   font-weight: bold;
   color: #194d77;
   letter-spacing: -1px;
@@ -165,27 +173,30 @@ button[type="submit"]:hover {
 #summary-comment {
   background: #f0f6ff;
   border-left: 4px solid #417efb;
-  padding: 17px 18px 12px 18px;
+  padding: 16px 15px 11px 15px;
   border-radius: 8px;
-  font-size: 1.11em;
+  font-size: 1.05em;
   color: #225388;
   font-weight: 500;
-  margin: 16px 0 19px 0;
+  margin: 15px 0 17px 0;
   box-shadow: 0 1.5px 6px rgba(50,100,200,0.05);
   text-align: left;
+  line-height: 1.7;
+  word-break: keep-all;
 }
 
 /* 항목별 코멘트 (가독성 강조, 박스화) */
 .item-comment {
-  margin: 0 0 17px 0;
-  font-size: 1.10em;
-  padding: 13px 14px 10px 14px;
+  margin: 0 0 12px 0;
+  font-size: 1.01em;
+  padding: 10px 10px 9px 11px;
   border-radius: 7px;
   background: #f5f7fb;
   box-shadow: 0 1.5px 5px rgba(30,60,100,0.04);
   color: #223f5d;
   border-left: 5px solid #4079ea;
   line-height: 1.7;
+  word-break: keep-all;
 }
 .item-comment b {
   color: #174176;
@@ -194,10 +205,10 @@ button[type="submit"]:hover {
 
 /* 미니 라인차트 박스 */
 #mini-charts {
-  margin-top: 6px;
+  margin-top: 4px;
   display: flex;
   flex-wrap: wrap;
-  gap: 0 10px;
+  gap: 7px 8px;
   justify-content: flex-start;
 }
 .mini-chart-block {
@@ -205,57 +216,48 @@ button[type="submit"]:hover {
   flex-direction: column;
   align-items: center;
   width: 120px;
-  min-width: 100px;
+  min-width: 88px;
   background: #f3f8fa;
   border-radius: 10px;
   box-shadow: 0 1px 4px rgba(90,120,150,0.06);
-  padding: 9px 6px 9px 6px;
-  margin: 0 10px 18px 0;
+  padding: 9px 4px 8px 4px;
+  margin: 0 8px 12px 0;
 }
 .mini-chart-title {
-  font-size: 1em;
+  font-size: 0.99em;
   color: #3171d5;
   font-weight: bold;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
   letter-spacing: -1px;
 }
 
-/* 반응형 (모바일) */
-@media (max-width: 700px) {
-  .main-container {
-    padding: 9vw 3vw 6vw 3vw;
-    max-width: 98vw;
-  }
-  .card-section, .details-section {
-    padding: 7vw 3vw 4vw 3vw !important;
-  }
-  .mini-chart-block {
-    width: 92vw !important;
-    min-width: 0 !important;
-    margin: 0 0 14px 0;
-  }
-  .gauge-wrap {
-    width: 28vw;
-    height: 28vw;
-    min-width: 100px;
-    min-height: 100px;
-    max-width: 170px;
-    max-height: 170px;
-  }
-  .gauge-label {
-    font-size: 6vw !important;
-  }
+#pdf-download-btn {
+  font-size: 1.09em;
+  background: #174176;
+  color: #fff;
+  border: none;
+  border-radius: 9px;
+  padding: 11px 30px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(30,80,220,0.08);
+  transition: background .18s;
+  margin: 8px auto 14px auto;
+  display: block;
+}
+#pdf-download-btn:hover {
+  background: #1e63de;
 }
 
-
+/* 웰컴 애니메이션/AI */
 .welcome-visual {
   width: 100%;
-  min-height: 280px;
+  min-height: 240px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin-top: 40px;
+  margin-top: 36px;
   margin-bottom: 10px;
   animation: fadein 1.1s;
 }
@@ -288,27 +290,137 @@ button[type="submit"]:hover {
 @keyframes dashmove {
   to { stroke-dashoffset: 0;}
 }
-@media (max-width:700px) {
-  .welcome-visual { min-height: 180px; margin-top: 19vw;}
-  .ai-anim-chart svg { width: 80vw; height: 54vw; }
-  .ai-title { font-size: 1.08em;}
-  .ai-sub { font-size: 0.93em;}
-}
 
-#pdf-download-btn {
-  font-size: 1.09em;
-  background: #174176;
-  color: #fff;
-  border: none;
-  border-radius: 9px;
-  padding: 11px 30px;
-  font-weight: bold;
-  cursor: pointer;
-  box-shadow: 0 2px 8px rgba(30,80,220,0.08);
-  transition: background .18s;
-  margin: 8px auto 14px auto;
-  display: block;
-}
-#pdf-download-btn:hover {
-  background: #1e63de;
+/* --- 모바일 반응형 --- */
+@media (max-width: 700px) {
+  body {
+    background: #151920 !important;
+    font-size: 16px;
+  }
+  .main-container {
+    padding: 8vw 2vw 6vw 2vw !important;
+    margin: 13vw 0 8vw 0;
+    border-radius: 17px;
+    max-width: 99vw;
+    min-width: 0;
+    box-shadow: 0 2px 18px rgba(35,50,100,0.13);
+  }
+  h1 {
+    font-size: 1.29em;
+    margin-bottom: 7px;
+    letter-spacing: -1.2px;
+  }
+  .desc-text {
+    font-size: 1em;
+    margin-bottom: 19px;
+    line-height: 1.5;
+  }
+  form#search-form {
+    flex-direction: column;
+    gap: 9px;
+    margin-bottom: 16px;
+    padding: 0 3vw;
+  }
+  #ticker-input, button[type="submit"] {
+    width: 100%;
+    font-size: 1em;
+    padding: 12px 10px;
+    margin-bottom: 0;
+    min-width: 0;
+    border-radius: 9px;
+  }
+  .card-section, .details-section {
+    padding: 7vw 3vw 4vw 3vw !important;
+    border-radius: 14px;
+    box-shadow: 0 2.5px 9px rgba(30,50,100,0.08);
+    margin-bottom: 18px;
+  }
+  .gauge-center-box {
+    margin-bottom: 22px;
+  }
+  .gauge-wrap {
+    width: 30vw !important;
+    height: 30vw !important;
+    min-width: 95px !important;
+    min-height: 95px !important;
+    max-width: 135px;
+    max-height: 135px;
+  }
+  .gauge-label {
+    font-size: 7vw !important;
+    margin-top: 8px;
+  }
+  #score-label {
+    font-size: 1em;
+    margin-top: 3px;
+  }
+  #score-meta {
+    font-size: 0.98em;
+    margin-bottom: 6px;
+  }
+  .recommend-box {
+    font-size: 1em;
+    margin: 15px 0 8px 0;
+    padding: 12px 13px 12px 10px;
+    border-radius: 8px;
+  }
+  .section-title {
+    font-size: 1em;
+    margin-bottom: 6px;
+    margin-top: 8px;
+    border-radius: 2px;
+    padding-left: 2px;
+  }
+  #summary-comment {
+    font-size: 0.97em;
+    padding: 13px 7px 10px 10px;
+    margin: 10px 0 14px 0;
+    border-radius: 6px;
+  }
+  .item-comment {
+    font-size: 0.96em;
+    padding: 8px 7px 8px 8px;
+    margin-bottom: 9px;
+    border-radius: 6px;
+  }
+  #mini-charts {
+    gap: 5px 0;
+    margin-top: 2vw;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .mini-chart-block {
+    width: 46vw !important;
+    max-width: 175px !important;
+    min-width: 92px !important;
+    margin: 0 0 8px 0 !important;
+    border-radius: 9px;
+    padding: 6px 0 2px 0 !important;
+  }
+  .mini-chart-title {
+    font-size: 0.99em !important;
+    margin-bottom: 2px;
+  }
+  #pdf-download-btn {
+    font-size: 1em;
+    padding: 12px 0;
+    border-radius: 8px;
+    margin: 10px 0 12px 0;
+    width: 100%;
+    max-width: 360px;
+  }
+  .welcome-visual {
+    min-height: 120px;
+    margin-top: 10vw;
+    margin-bottom: 4vw;
+  }
+  .ai-title {
+    font-size: 1.08em;
+    margin-top: 13px;
+    margin-bottom: 6px;
+  }
+  .ai-sub {
+    font-size: 0.91em;
+    line-height: 1.45;
+  }
 }
