@@ -312,3 +312,54 @@ button[type="submit"]:hover {
 #pdf-download-btn:hover {
   background: #1e63de;
 }
+#item-rows { margin-top: 6px; }
+.item-row {
+  display: flex;
+  align-items: stretch;
+  margin-bottom: 18px;
+  gap: 18px;
+}
+.item-row .item-comment {
+  flex: 1 1 0;
+  min-width: 0;
+  font-size: 1.10em;
+  color: #22334d;
+  background: #f9fbfe;
+  border-radius: 9px;
+  padding: 13px 17px 11px 15px;
+  box-shadow: 0 1px 3px rgba(20,35,60,0.05);
+  margin-right: 0;
+  word-break: keep-all;
+  display: flex;
+  align-items: center;
+  border-left: 5px solid #4079ea;
+}
+.item-row .item-chart {
+  flex: 1 1 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.item-row .item-chart canvas {
+  width: 220px !important;
+  height: 90px !important;
+  max-width: 95vw;
+  max-height: 120px;
+  background: #fff;
+  border-radius: 7px;
+  box-shadow: 0 1px 4px rgba(30,30,80,0.04);
+}
+/* 모바일: 코멘트-차트 세로 쌍 & 차트 더 크게 */
+@media (max-width: 700px) {
+  #item-rows { margin-top: 10vw; }
+  .item-row { flex-direction: column; gap: 6px; margin-bottom: 22px;}
+  .item-row .item-comment { font-size: 1.13em; padding: 14px 11px 10px 12px;}
+  .item-row .item-chart canvas {
+    width: 99vw !important;
+    max-width: 98vw;
+    min-width: 210px;
+    height: 120px !important;
+    max-height: 180px;
+    margin: 0 auto;
+  }
+}
