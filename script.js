@@ -550,45 +550,45 @@ window.onload = () => {
 //     document.getElementById('pdf-download-btn').style.display = "block";
 // }
 
-document.getElementById('pdf-download-btn').addEventListener('click', function () {
-    // 1. card-section, details-section 복사
+// document.getElementById('pdf-download-btn').addEventListener('click', function () {
+//     // 1. card-section, details-section 복사
 
-    const content = document.createElement('div');
-    content.append(
-      document.querySelector('.card-section').cloneNode(true),
-      document.querySelector('.details-section').cloneNode(true)
-    );
+//     const content = document.createElement('div');
+//     content.append(
+//       document.querySelector('.card-section').cloneNode(true),
+//       document.querySelector('.details-section').cloneNode(true)
+//     );
 
-    // 2. 복제된 content 내의 모든 canvas → 이미지로 변환
-    const canvases = document.querySelectorAll('.card-section canvas, .details-section canvas');
-    const clones = content.querySelectorAll('canvas');
-    clones.forEach((canvas, i) => {
-        try {
-            // 캡처된 canvas의 이미지 data url로 img 대체
-            const img = document.createElement('img');
-            img.src = canvases[i].toDataURL('image/png');
-            img.style.maxWidth = canvas.style.width || canvas.width + 'px';
-            img.style.maxHeight = canvas.style.height || canvas.height + 'px';
-            img.style.display = "block";
-            img.style.margin = "0 auto 8px auto";
-            canvas.parentNode.replaceChild(img, canvas);
-        } catch(e) {
-            // 에러 무시
-        }
-    });
+//     // 2. 복제된 content 내의 모든 canvas → 이미지로 변환
+//     const canvases = document.querySelectorAll('.card-section canvas, .details-section canvas');
+//     const clones = content.querySelectorAll('canvas');
+//     clones.forEach((canvas, i) => {
+//         try {
+//             // 캡처된 canvas의 이미지 data url로 img 대체
+//             const img = document.createElement('img');
+//             img.src = canvases[i].toDataURL('image/png');
+//             img.style.maxWidth = canvas.style.width || canvas.width + 'px';
+//             img.style.maxHeight = canvas.style.height || canvas.height + 'px';
+//             img.style.display = "block";
+//             img.style.margin = "0 auto 8px auto";
+//             canvas.parentNode.replaceChild(img, canvas);
+//         } catch(e) {
+//             // 에러 무시
+//         }
+//     });
 
-    // 3. PDF 옵션
-    const tickerName = lastTicker ? lastTicker.toUpperCase() : "종목";
-    const opt = {
-      margin: 0.15,
-      filename: `${tickerName}_재무제표_분석결과.pdf`,
-      image: { type: 'jpeg', quality: 0.98 },
-      html2canvas: { scale: 2, useCORS: true },
-      jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
-    };
-    // 4. PDF로 저장
-    html2pdf().from(content).set(opt).save();
-});
+//     // 3. PDF 옵션
+//     const tickerName = lastTicker ? lastTicker.toUpperCase() : "종목";
+//     const opt = {
+//       margin: 0.15,
+//       filename: `${tickerName}_재무제표_분석결과.pdf`,
+//       image: { type: 'jpeg', quality: 0.98 },
+//       html2canvas: { scale: 2, useCORS: true },
+//       jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
+//     };
+//     // 4. PDF로 저장
+//     html2pdf().from(content).set(opt).save();
+// });
 
 // 1. 화면 블러 처리 함수
 function blockPage() {
