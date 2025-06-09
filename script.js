@@ -597,7 +597,7 @@ function blockPage() {
   // 2) 블록 오버레이 표시
   document.getElementById('block-overlay').style.display = "block";
   // 4) 강제 리다이렉트 (원한다면 주석 해제)
-  location.href = "https://google.com"; // 또는 다른 사이트로 강제 이동
+  location.href = "http://stockai.kro.kr/warningKr.html"; // 또는 다른 사이트로 강제 이동
 }
 
 // 2. 우클릭/F12/소스보기 단축키 등 방지
@@ -618,7 +618,7 @@ document.addEventListener('keydown', function(e) {
       window.outerHeight - window.innerHeight > threshold
     ) {
       if (!blocked) {
-        location.href = "https://google.com"; // 또는 다른 사이트로 강제 이동
+        location.href = "http://stockai.kro.kr/warningKr.html"; // 또는 다른 사이트로 강제 이동
         
         blockPage();
         blocked = true;
