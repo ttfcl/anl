@@ -1,4 +1,4 @@
-const API_KEY = 'i7SNR4PCjuSPhvZRkagJAQjLRaZUC2aF';
+const API_KEY = 'cw4eHsRvjQ9QlMbNOjLZ5FAnrKXw2JHx';
 let lastTicker = ''
 
 // 1. FMP API에서 3년치 재무 데이터 불러오기
